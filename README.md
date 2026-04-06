@@ -28,9 +28,6 @@ A FastAPI-based chatbot that remembers conversation history using OpenAI API.
 docker pull ghcr.io/bhsingh0/chatbot:latest
 docker run -p 8000:8000 --env-file .env ghcr.io/bhsingh0/chatbot:latest
 ```
-
-## Author
-Bharti Singh
 ## 🚀 Live Demo
 
 Your chatbot is live here:
@@ -45,3 +42,6 @@ curl -X POST https://ai-chatbot.onrender.com/chat \
   -d '{"text":"Hello"}'
 ```
 
+
+## Author
+Bharti Singh
