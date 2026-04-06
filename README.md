@@ -31,3 +31,17 @@ docker run -p 8000:8000 --env-file .env ghcr.io/bhsingh0/chatbot:latest
 
 ## Author
 Bharti Singh
+## 🚀 Live Demo
+
+Your chatbot is live here:
+https://ai-chatbot.onrender.com
+
+Try it:
+```bash
+curl https://ai-chatbot.onrender.com/
+
+curl -X POST https://ai-chatbot.onrender.com/chat \
+  -H 'Content-Type: application/json' \
+  -d '{"text":"Hello"}'
+```
+
