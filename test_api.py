@@ -10,4 +10,4 @@ response = client.chat.completions.create(
     messages=[{"role": "user", "content": "Say hello"}]
 )
 
-print(response.content[0].text)
+print(response.choices[0].message.content)
