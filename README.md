@@ -23,5 +23,11 @@ A FastAPI-based chatbot that remembers conversation history using OpenAI API.
 4. Create `.env`: `OPENAI_API_KEY=your-key`
 5. Run: `uvicorn main:app --reload`
 
+## Docker Image
+```bash
+docker pull ghcr.io/bhsingh0/chatbot:latest
+docker run -p 8000:8000 --env-file .env ghcr.io/bhsingh0/chatbot:latest
+```
+
 ## Author
 Bharti Singh
