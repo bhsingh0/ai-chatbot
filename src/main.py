@@ -8,7 +8,8 @@ load_dotenv()
 
 app = FastAPI()
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# IMPORTANT: Strip whitespace from API key!
+openai.api_key = os.getenv("OPENAI_API_KEY", "").strip()
 
 conversation_history = []
 
