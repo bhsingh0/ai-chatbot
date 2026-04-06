@@ -45,3 +45,18 @@ curl -X POST https://ai-chatbot.onrender.com/chat \
 
 ## Author
 Bharti Singh
+
+## 🚀 Live Chatbot
+
+**Your chatbot is live here:**
+https://ai-chatbot-77u1.onrender.com
+
+**Try it:**
+```bash
+curl https://ai-chatbot-77u1.onrender.com/
+
+curl -X POST https://ai-chatbot-77u1.onrender.com/chat \
+  -H 'Content-Type: application/json' \
+  -d '{"text":"Hello"}'
+```
+
