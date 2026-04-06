@@ -1,16 +1,26 @@
+import os
 from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
-client = OpenAI()
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise ValueError("OPENAI_API_KEY not set in .env")
+
+client = OpenAI(api_key=api_key)
 
 def chat(messages):
-    response = client.chat.completions.create(
-        model="gpt-4-turbo",
-        messages=messages,
-        temperature=0.7
-    )
-    return response.choices[0].message.content
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4-turbo",
+            messages=messages,
+            temperature=0.7,
+            timeout=30
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        return f"Error:{str(e)}"
+
 
 # Main loop
 messages = [
