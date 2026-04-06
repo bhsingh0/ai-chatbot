@@ -7,13 +7,22 @@ load_dotenv()
 
 app = FastAPI()
 
+_client = None
+
 def get_openai_client():
-    """Lazy load OpenAI client"""
-    from openai import OpenAI
-    api_key = os.getenv("OPENAI_API_KEY")
-    if not api_key:
-        raise ValueError("OPENAI_API_KEY not set")
-    return OpenAI(api_key=api_key)
+    global _client
+    if _client is not None:
+        return _client
+    try:
+        from openai import OpenAI
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key:
+            raise ValueError("OPENAI_API_KEY not set")
+        _client = OpenAI(api_key=api_key, timeout=30.0, max_retries=2)
+        return _client
+    except Exception as e:
+        print(f"Error: {e}")
+        raise
 
 conversation_history = []
 
